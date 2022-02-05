@@ -2,7 +2,6 @@ class Solution {
 public:
     int minDeletions(string s) {
         unordered_map<char, int>mp;
-        if(s =="ec")return 1;
         vector<int>v;
         for(auto x : s){
             mp[x]++;
@@ -16,7 +15,8 @@ public:
         }cout << endl;
         int n = v.size();
         long long sum = 0;
-        if(n <= 2)return 0;
+        if(n <= 1)return 0;
+        if(n == 2 && v[0] == v[1])return 1;
         int j = 0;
         for(int i = 1 ; i < n ;i++){
             if(v[i-1]<=v[i]){
