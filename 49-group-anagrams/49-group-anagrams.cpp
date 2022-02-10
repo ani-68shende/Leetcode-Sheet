@@ -10,7 +10,6 @@ public:
             mp[h].push_back(x);
         }
         for(auto x : mp){
-            
             v.push_back(x.second);
         }
         return v;
