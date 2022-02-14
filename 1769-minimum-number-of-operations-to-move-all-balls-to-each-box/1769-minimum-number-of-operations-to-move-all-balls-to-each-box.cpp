@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // inefficent way
     vector<int> minOperations(string boxes) {
         vector<int>v;
         for(int i = 0 ; i < boxes.size() ; i++){
