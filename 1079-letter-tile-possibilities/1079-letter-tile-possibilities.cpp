@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //simple backtraking stpes--->for more info watch the first yt video that comes on search
     string S;
     unordered_map<int, int>mp;
     set<string>s;
