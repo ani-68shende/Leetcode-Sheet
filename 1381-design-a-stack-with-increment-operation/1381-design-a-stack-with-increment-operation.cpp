@@ -26,7 +26,7 @@ public:
     
     void increment(int k, int val) {
         int mni = min(k-1, top);
-        for(int i = 0 ; i < v.size() && i <= mni ; i++){
+        for(int i = 0 ;i <= mni ; i++){
             v[i]+=val;
         }
     }
