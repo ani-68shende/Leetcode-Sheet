@@ -9,13 +9,13 @@ public:
                 flag1 = 1;
             }
         }
+        if(flag1 == 0)return true;
         for(int i = 0 ; i < n ; i++){
             if(s1[i]> s2[i]){
                 flag2 = 1;
             }
         }
         if(flag1 == 1 && flag2 == 0)return true;
-        else if(flag2 == 1 && flag1 == 0)return true;
         return false;
     }
 };
