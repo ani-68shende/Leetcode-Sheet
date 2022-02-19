@@ -1,5 +1,7 @@
 class Solution {
 public:
+    //main idea in this question is that we need to take care of the corner cases and also see only the top and the left as the bottom and the right cases get handled by the code itself;
+    //if you are getting confused then try to dry run the code for a better understanding
     int islandPerimeter(vector<vector<int>>& grid) {
         int peri = 0;
         int n = grid.size();
