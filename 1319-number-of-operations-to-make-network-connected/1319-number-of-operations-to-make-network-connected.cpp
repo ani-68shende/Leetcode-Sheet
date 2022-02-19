@@ -24,7 +24,7 @@ public:
                 dfs(mp,i,visited);
             }
         }
-        // The most important ofrmula or algorithm you can say.....
+        // The most important formula or algorithm you can say.....
         if(edges < n-1){
             return -1;
         }
