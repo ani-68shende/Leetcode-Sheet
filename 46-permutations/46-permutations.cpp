@@ -1,6 +1,6 @@
 class Solution {
 public:
-    //and in this is the type of backtracking where we don't have to pass the idx variable
+    //and in this is the type of backtracking where we have to pass the idx variable
     void helper(int idx, vector<int>& s, vector<vector<int>>&ans){
         if(idx == s.size()){
             ans.push_back(s);
