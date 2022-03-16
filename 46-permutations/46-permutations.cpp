@@ -1,26 +1,20 @@
 class Solution {
 public:
-    //this is the type of backtracking where we don't have to pass the idx variable
-    void helper(vector<int> s, vector<int> &z, vector<vector<int>>&ans, vector<bool> &visited){
-        if(z.size() == s.size()){
-            ans.push_back(z);
+    //and in this is the type of backtracking where we don't have to pass the idx variable
+    void helper(int idx, vector<int>& s, vector<vector<int>>&ans){
+        if(idx == s.size()){
+            ans.push_back(s);
             return;
         }
-        for(int i = 0 ; i < s.size() ; i++){
-            if(!visited[i]){
-                visited[i] = true;
-                z.push_back(s[i]);
-                helper(s,z,ans, visited);
-                visited[i] = false;
-                z.pop_back();
-            }
+        for(int i = idx ; i < s.size() ; i++){
+            swap(s[i],s[idx]);
+            helper(idx+1, s, ans);
+            swap(s[i],s[idx]);
         }
     }
     vector<vector<int>> permute(vector<int>& s) {
         vector<vector<int>>ans;
-        vector<int> z;
-        vector<bool>visited(s.size(), false);
-        helper(s,z,ans,visited);
+        helper(0,s,ans);
         return ans;
     }
 };
