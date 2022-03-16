@@ -1,28 +1,26 @@
 class Solution {
 public:
-    vector<int> S;
-    unordered_map<int, int>mp;
-    set<vector<int>>s;
-    vector<vector<int>> permute(vector<int>& tiles) {
-        vector<vector<int>>ha;
-        solve(tiles);
-        int n = tiles.size();
-        for(auto x : s){
-            if(x.size() == n)
-            ha.push_back(x);
+    //this is the type of backtracking where we don't have to pass the idx variable
+    void helper(vector<int> s, vector<int> &z, vector<vector<int>>&ans, vector<bool> &visited){
+        if(z.size() == s.size()){
+            ans.push_back(z);
+            return;
         }
-        return ha;
-    }
-    void solve(vector<int> tiles){
-        for(int i = 0 ;i < tiles.size(); i++){
-            if(!mp[i]){
-                mp[i] = 1;
-                S.push_back(tiles[i]);
-                s.insert(S);
-                solve(tiles);
-                mp[i] = 0;
-                S.pop_back();
+        for(int i = 0 ; i < s.size() ; i++){
+            if(!visited[i]){
+                visited[i] = true;
+                z.push_back(s[i]);
+                helper(s,z,ans, visited);
+                visited[i] = false;
+                z.pop_back();
             }
         }
+    }
+    vector<vector<int>> permute(vector<int>& s) {
+        vector<vector<int>>ans;
+        vector<int> z;
+        vector<bool>visited(s.size(), false);
+        helper(s,z,ans,visited);
+        return ans;
     }
 };
