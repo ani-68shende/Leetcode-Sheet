@@ -23,13 +23,13 @@ class Solution {
         {
             return false;
         }
-        else if(p.val == q.val)
+        else if(p.val != q.val)
         {
-            return isSameTree(p.right,q.right) && isSameTree(p.left,q.left);
+            return false;
         }
         else
         {
-            return false;
+            return isSameTree(p.right,q.right) && isSameTree(p.left,q.left);
         }
             
     }
