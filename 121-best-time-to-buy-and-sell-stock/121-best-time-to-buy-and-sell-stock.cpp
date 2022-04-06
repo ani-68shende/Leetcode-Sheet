@@ -2,12 +2,12 @@ class Solution {
 public:
     // nw let us move towards the optimal approach 
     int maxProfit(vector<int>& prices) {
+        int ans = 0;
         int mini = prices[0];
-        int sumu = 0;
-        for(auto i : prices){
-            sumu = max(sumu, i-mini);
-            mini = min(i, mini);
+        for(int i = 0 ; i < prices.size() ; i++){
+            ans = max(ans, prices[i]-mini);
+            mini = min(mini, prices[i]);
         }
-        return sumu;
+        return ans;
     }
 };
