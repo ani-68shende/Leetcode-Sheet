@@ -27,10 +27,8 @@ class Solution {
         {
             return false;
         }
-        else
-        {
-            return isSameTree(p.right,q.right) && isSameTree(p.left,q.left);
-        }
-            
+        boolean left = isSameTree(p.left,q.left);
+        boolean right = isSameTree(p.right,q.right);
+        return left && right;
     }
 }
