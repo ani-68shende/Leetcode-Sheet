@@ -1,23 +1,28 @@
 class Solution {
 public:
-    bool bipartiteBFS(int src, vector<vector<int>> adj, vector<int> color)
+    bool bipartiteBFS(int node, vector<vector<int>> adj, vector<int> color)
     {
-        queue<int>q;
-        q.push(src); 
-        color[src] = 1; 
-        while(!q.empty()) {
-            int node = q.front(); 
+        color[node] = 1;
+        queue<int> q;
+        q.push(node);
+        while (!q.empty())
+        {
+            int it = q.front();
             q.pop();
-            for(auto it : adj[node]) {
-                if(color[it] == -1) {
-                    color[it] = 1 - color[node]; 
-                    q.push(it); 
-                } else if(color[it] == color[node]) {
-                    return false; 
+            for (auto child : adj[it])
+            {
+                if (color[child] == -1)
+                {
+                    color[child] = 1 - color[it];
+                    q.push(child);
+                }
+                else if (color[child] == color[it])
+                {
+                    return false;
                 }
             }
         }
-        return true; 
+        return true;
     }
     bool isBipartite(vector<vector<int>>& adj) {
     int n = adj.size();    
