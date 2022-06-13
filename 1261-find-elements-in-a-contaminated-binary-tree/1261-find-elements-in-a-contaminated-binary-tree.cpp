@@ -11,6 +11,14 @@
  */
 class FindElements {
 public:
+    
+    /*
+    use simple preorder dont think too much and do what you shall do
+    */
+    
+    
+    
+    
     unordered_map<int, int>m;
     void changer(TreeNode* root, int value){
         if(!root){
