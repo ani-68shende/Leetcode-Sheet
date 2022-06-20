@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // the most imp and OP step in this question is the assigning of -1 in the 0's position and assigning 0 in 1's position
     vector<vector<int>> highestPeak(vector<vector<int>>&wa) {
         int n = wa.size();
         int m = wa[0].size();
