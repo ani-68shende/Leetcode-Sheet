@@ -1,6 +1,6 @@
 class Solution {
 public:
-    // tabulation --
+    // FInale blast Space optimization --
     
     
     int f(int i, int j, vector<vector<int>>& og, vector<vector<int>>& dp){
@@ -15,21 +15,23 @@ public:
     int uniquePathsWithObstacles(vector<vector<int>>& og) {
         int m = og.size();
         int n = og[0].size();
-        vector<vector<int>>dp(m, vector<int>(n, -1));
+        vector<int> prev(n, -1);
+        vector<int> curr(n, -1);
         for(int i = 0 ; i < m ; i++){
             for(int j = 0 ; j < n ; j++){
                 if(og[i][j] == 1){
-                    dp[i][j] = 0;
+                    curr[j] = 0;
                 }else if(i == 0 && j == 0){
-                    dp[i][j] = 1;
+                    curr[j] = 1;
                 }else{
                     int top = 0, left = 0;
-                    if(i>=1)top = dp[i-1][j];
-                    if(j>=1)left = dp[i][j-1];
-                    dp[i][j] = top + left;
+                    if(i>=1)top = prev[j];
+                    if(j>=1)left = curr[j-1];
+                    curr[j] = top + left;
                 }
             }
+            prev = curr;
         }
-        return dp[m-1][n-1];
+        return prev[n-1];
     }
 };
