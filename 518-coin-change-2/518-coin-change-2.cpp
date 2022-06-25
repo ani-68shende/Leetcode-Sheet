@@ -1,6 +1,6 @@
 class Solution {
 public:
-    //recursive
+    // memoization
     int f(int ind, int target, vector<int> nums, vector<vector<int>>& dp){
         if(target == 0)return 1;
         if(ind == 0){
