@@ -1,6 +1,8 @@
 class Solution {
 public:
     int maxProduct(vector<string>& words) {
+        ios_base::sync_with_stdio(false);
+        cin.tie(NULL);
         int count = 0;
         sort(words.begin(), words.end(), greater<string>());
         for(int i = 0 ; i < words.size() ; i++){
