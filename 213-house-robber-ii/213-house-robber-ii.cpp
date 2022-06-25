@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    //recursion - making two arrays so that we can handle the adjacent condition of 1 & n-1 (first and last)
+    //memoizaytion - making two arrays so that we can handle the adjacent condition of 1 & n-1 (first and last)
     
     int f(int ind, vector<int>& nums, vector<int>& dp){
         if(ind == 0){
