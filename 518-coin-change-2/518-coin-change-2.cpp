@@ -1,7 +1,7 @@
 class Solution {
 public:
     
-    //tabulation
+    //space optimized code use ----- prev in the base case initialization step
     
     
     // int f(int ind, int target, vector<int> nums, vector<vector<int>>& dp){
