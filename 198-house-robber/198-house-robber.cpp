@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // memoized.... see the house robber 2
     int f(int ind, vector<int>& nums, vector<int>& dp){
         if(ind == 0){
             return nums[ind];
