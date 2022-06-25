@@ -1,5 +1,7 @@
 class Solution {
 public:
+    //was doing a simple row col mistake :(
+    
     int kthLargestValue(vector<vector<int>>& matrix, int k) {
         priority_queue<long, vector<long>, greater<long>>pq;
         vector<vector<int>>v(matrix);
