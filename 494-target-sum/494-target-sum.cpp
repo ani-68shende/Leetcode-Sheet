@@ -1,6 +1,7 @@
 class Solution {
 public:
-    // 
+    // a kind of tricky edge cases
+    // did large chnages in index base case and then also changed the "take" case
     int f(int ind, vector<int>& nums, int sum, int target){
         if(ind < 0 && target == sum)return 1;
         if(ind < 0)
