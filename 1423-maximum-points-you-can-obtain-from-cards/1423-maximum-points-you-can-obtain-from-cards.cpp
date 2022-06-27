@@ -1,7 +1,10 @@
 class Solution {
 public:
     // minimum subarray solves the problem :D
-    // be careful set the res = total because its the only max value possible
+    // be careful set the res = 0 and find the max of res, total-sum 
+
+    // fr more info check previous solutions of the same question :o
+    
     int maxScore(vector<int>& cp, int k) {
         int i = 0;
         int j = 0;
