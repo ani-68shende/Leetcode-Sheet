@@ -10,9 +10,9 @@ public:
             v.push_back(x.second);
         }
         sort(v.begin(), v.end(), greater<int>());
-        for(auto y : v){
-            cout << y << " ";
-        }cout << endl;
+        // for(auto y : v){
+        //     cout << y << " ";
+        // }cout << endl;
         int n = v.size();
         long long sum = 0;
         if(n <= 1)return 0;
@@ -25,9 +25,9 @@ public:
                 }
             }   
         }
-        for(auto y : v){
-            cout << y << " ";
-        }cout << endl;
+        // for(auto y : v){
+        //     cout << y << " ";
+        // }cout << endl;
         return sum;
     }
 };
