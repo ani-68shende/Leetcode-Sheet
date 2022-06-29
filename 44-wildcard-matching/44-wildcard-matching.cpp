@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //memoized
     bool f(int i, int j, string& s, string& p, vector<vector<int>>& dp){
         // 4 cases- 3 to be handled as base cases
         if(i < 0 && j < 0)return true;
