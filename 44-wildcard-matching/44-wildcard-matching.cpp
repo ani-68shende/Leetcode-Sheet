@@ -1,6 +1,6 @@
 class Solution {
 public:
-    //tabulation using shift of range .i.e i<0 -> i == 0
+    //space optimized using shift of range .i.e i<0 -> i == 0
     // n-1 -> n
     bool f(int i, int j, string& s, string& p, vector<vector<int>>& dp){
         // 4 cases- 3 to be handled as base cases
@@ -24,35 +24,32 @@ public:
     bool isMatch(string s, string p) {
         int n = p.size();
         int m = s.size();
-        vector<vector<bool>>dp(n+1, vector<bool>(m+1, -1));
+        vector<bool> prev(m+1, false), curr(m+1, false);
+        
         // return f(n, m, s, p, dp);
-        dp[0][0] = true;
-        for(int j = 1 ; j <= m ; j++){
-            dp[0][j] = false;
-        }
-        //tricky part starts
+        prev[0] = true;
         for(int i = 1 ; i <= n ; i++){
+            //tricky part starts (shifted inside)
             bool flag = true;
             for(int ii = 1 ; ii <= i ;ii++){
                 if(p[ii-1]!='*'){
                     flag = false;
                 }
             }
-            dp[i][0] = flag;
-        }
-        //tricky part ends
-        for(int i = 1 ; i <= n ; i++){
+            curr[0] = flag;
+            //tricky part ends
             for(int j = 1 ; j <= m ; j++){
                 if(p[i-1] == s[j-1] || p[i-1] == '?'){
-                    dp[i][j] = dp[i-1][j-1];
+                    curr[j] = prev[j-1];
                 }
                 else if(p[i-1] == '*'){
-                    dp[i][j] = dp[i-1][j] | dp[i][j-1];
+                    curr[j] = prev[j] | curr[j-1];
                 }
                 //imp step of adding else
-                else dp[i][j] = false;
+                else curr[j] = false;
             }
+            prev = curr;
         }
-        return dp[n][m];
+        return prev[m];
     }
 };
