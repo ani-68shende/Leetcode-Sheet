@@ -10,7 +10,7 @@ public:
             int nr = i + x[k];
             int nc = j + y[k];
             if(nr >= 0 && nr < N && nc >= 0 && nc < M && grid[nr][nc] > grid[i][j]){
-                tota = max(tota,1+ dfs(nr, nc, grid, dp));
+                tota = max(tota,1+dfs(nr, nc, grid, dp));
             }
         }
         return dp[i][j] = tota;
