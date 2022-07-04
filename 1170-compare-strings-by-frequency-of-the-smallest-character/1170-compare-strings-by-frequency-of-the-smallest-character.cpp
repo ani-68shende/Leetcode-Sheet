@@ -4,23 +4,28 @@ public:
         vector<int>worda;
         for(auto y : words){
             sort(y.begin(), y.end());
-            unordered_map<char, int>main;
-            for(auto x : y){
-                main[x]++;
+            int counta = 0;
+            char ch = y[0];
+            int i = 0;
+            while(i < y.size() &&  ch == y[i]){
+                counta++;
+                i++;
             }
-            worda.push_back(main[y[0]]);
+            worda.push_back(counta);
         }
         sort(worda.begin(), worda.end());
         vector<int>a;
         int n = worda.size();
         for(auto y : queries){
             sort(y.begin(), y.end());
-            unordered_map<char, int>main;
-            for(auto x : y){
-                main[x]++;
+            int counta = 0;
+            char ch = y[0];
+            int i = 0;
+            while(i < y.size() &&  ch == y[i]){
+                counta++;
+                i++;
             }
-            int maxui = main[y[0]];
-            int key = upper_bound(worda.begin(), worda.end(), maxui)-worda.begin();
+            int key = upper_bound(worda.begin(), worda.end(), counta)-worda.begin();
             a.push_back(n-key);
         }
         // for(auto x : mp){
