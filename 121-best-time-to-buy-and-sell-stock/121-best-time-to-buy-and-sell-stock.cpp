@@ -5,8 +5,8 @@ public:
         int ans = 0;
         int mini = prices[0];
         for(int i = 0 ; i < prices.size() ; i++){
-            ans = max(ans, prices[i]-mini);
             mini = min(mini, prices[i]);
+            ans = max(ans, prices[i]-mini);
         }
         return ans;
     }
