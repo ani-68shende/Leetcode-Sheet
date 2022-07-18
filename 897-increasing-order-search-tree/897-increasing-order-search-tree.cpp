@@ -11,19 +11,19 @@
  */
 class Solution {
 public:
-    void preorder(TreeNode* root, TreeNode*& temp){
+    void inorder(TreeNode* root, TreeNode*& temp){
         if(!root)return ;
-        preorder(root->left, temp);
+        inorder(root->left, temp);
         cout << root-> val << " ";
         TreeNode* nnode = new TreeNode(root->val);
         temp -> right = nnode;
         temp = temp -> right;
-        preorder(root->right, temp);
+        inorder(root->right, temp);
     }
     TreeNode* increasingBST(TreeNode* root) {
         TreeNode* temp = new TreeNode(-99);
         TreeNode* ans = temp;
-        preorder(root, temp);
+        inorder(root, temp);
         return ans->right;
     }
 };
