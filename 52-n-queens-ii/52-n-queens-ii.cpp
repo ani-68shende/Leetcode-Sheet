@@ -24,9 +24,9 @@ public:
         }
         return true;
     }
-    void solve(int col, vector<string>&board, int n, vector<vector<string>>& ans){
+    void solve(int col, vector<string>&board, int n, int& ans){
         if(col == n){
-            ans.push_back(board);
+            ans++;
             return ;
         }
         for(auto i = 0 ; i < n ; i++){
@@ -43,8 +43,8 @@ public:
         for(int i = 0 ; i < n ; i++){
             board[i] = ss;
         }
-        vector<vector<string>>ans;
+        int ans = 0;
         solve(0, board, n, ans);    
-        return ans.size();
+        return ans;
     }
 };
