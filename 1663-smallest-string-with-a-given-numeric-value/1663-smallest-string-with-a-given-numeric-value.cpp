@@ -17,8 +17,6 @@ public:
             else if(k >= 1){
                 j = k%25;
                 k = 0;
-            }else{
-                break;
             }
             mar[y]+=j;
             y--;
