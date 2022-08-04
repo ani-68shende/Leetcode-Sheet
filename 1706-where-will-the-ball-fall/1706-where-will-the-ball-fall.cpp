@@ -4,7 +4,6 @@ public:
         if(i == m){
             return j;
         }
-        //if(j < 0 || j >= n)return -1;
         if(grid[i][j] == 1){
             if(j+1<n && grid[i][j+1] == 1){
                 return f(i+1,j+1, n, m, grid);
