@@ -1,8 +1,17 @@
 class Solution {
 public:
     int peakIndexInMountainArray(vector<int>& arr) {
-        map<int, int>mp;for(int i = 0 ; i < arr.size() ; i++)mp[arr[i]] = i;
-        int maxu = *max_element(arr.begin(), arr.end());
-        return mp[maxu];
+        int i = 0 ;
+        int j = arr.size()-1;
+        int mid = 0;
+        while(i <= j){
+            mid = (j+i)>>1;
+            if(arr[mid] < arr[mid+1]){
+                i = mid + 1;
+            }else{
+                j = mid - 1;
+            }
+        }
+        return i;
     }
 };
