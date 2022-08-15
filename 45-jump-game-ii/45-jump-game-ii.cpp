@@ -20,7 +20,7 @@ public:
         int index_of_maxReach = 0;
         while(maxReach < n-1){
             steps++;
-            for(int j= i+1 ; j <= arr[i]+i ; j++){
+            for(int j= i+1 ; j <= i + arr[i] ; j++){
                 if(maxReach < arr[j] + j){
                     maxReach = arr[j]+j;
                     index_of_maxReach = j;
