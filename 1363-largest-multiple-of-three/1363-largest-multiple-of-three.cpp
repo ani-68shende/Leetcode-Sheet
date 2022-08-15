@@ -54,7 +54,6 @@ public:
         //     cout << x.first << " " << x.second << endl;
         // }
         string h = "";
-        if(mp.size() == 0)return "";
         if((mp.size() == 1 && mp.count(0)))return "0";
         for(auto x : mp){
             char chu = x.first+'0';
