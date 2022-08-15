@@ -11,8 +11,23 @@ public:
         }
         return dp[i] = mini;
     }
-    int jump(vector<int>& nums) {
-        vector<int>dp(nums.size(), -1);
-        return f(0, nums, dp);   
+    int jump(vector<int>& arr) {
+        int n = arr.size();
+        if(n == 1)return 0;
+        int maxReach = arr[0];
+        int i = 0;
+        int steps = 1;
+        int index_of_maxReach = 0;
+        while(maxReach < n-1){
+            steps++;
+            for(int j= i+1 ; j <= arr[i]+i ; j++){
+                if(maxReach < arr[j] + j){
+                    maxReach = arr[j]+j;
+                    index_of_maxReach = j;
+                }
+            }
+            i = index_of_maxReach;
+        }
+        return steps;  
     }
 };
