@@ -2,7 +2,7 @@ class Solution {
 public:
     // % is the game changer --> (which separates this from medium level question) master 
     long long int f(long long int n, map<long long int, long long int> & dp){
-        if(n <= 0){
+        if(n == 0){
             return 0;
         }
         if(n == 1)return 1;
