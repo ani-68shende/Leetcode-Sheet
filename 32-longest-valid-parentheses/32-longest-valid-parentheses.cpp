@@ -10,7 +10,7 @@ public:
         {
             if(stk.top()!=-1&&s[i]==')'&&s[stk.top()]=='(')
             {
-                // chal hat aisa karke nikala isko
+                // chal hat aisa karke nikala isko pop or what()
                 stk.pop();
                 maxL=max(maxL,i-stk.top());
             }
