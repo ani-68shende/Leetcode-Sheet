@@ -1,5 +1,8 @@
 class Solution {
 public:
+    
+    //finally after seeing 3 yt videos
+    
     int f(int prev, int i, int d, vector<int>& arr, vector<int> & dp){
         if(dp[i]!=-1)return dp[i];
         int maxi = 0;
@@ -22,8 +25,6 @@ public:
         return dp[i] = maxi;
     }
     int maxJumps(vector<int>& arr, int d) {
-        ios_base::sync_with_stdio(false);
-        cin.tie(NULL);
         int maxu = 0;
         vector<int>dp(arr.size(), -1);
         for(int i = 0 ; i < arr.size() ; i++){
