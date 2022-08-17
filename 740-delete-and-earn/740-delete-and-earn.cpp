@@ -16,6 +16,7 @@ public:
         for(int i(0) ; i < nums.size() ; i++){
             v[nums[i]] += nums[i];
         }
-        return home_rob(10000, v, dp);
+        // just adding maxu to improve tc
+        return home_rob(maxu, v, dp);
     }
 };
