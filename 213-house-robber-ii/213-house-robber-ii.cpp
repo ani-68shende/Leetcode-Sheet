@@ -2,7 +2,10 @@ class Solution {
 public:
     
     //memoizaytion - making two arrays so that we can handle the adjacent condition of 1 & n-1 (first and last)
-    
+    /*
+    elements 1 2 3 4 5 6 7 7 8 9 10
+            s1 s2              e1 e2
+    */
     int f(int ind, vector<int>& nums, vector<int>& dp){
         if(ind == 0){
             return nums[ind];
