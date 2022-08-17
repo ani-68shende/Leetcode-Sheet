@@ -7,8 +7,8 @@ public:
         }
         if(ind < 0)return 0;
         if(dp[ind]!=-1)return dp[ind];
-        int notTake = 0 + f(ind-1, nums, dp);
         int take = nums[ind] + f(ind-2, nums, dp);
+        int notTake = 0 + f(ind-1, nums, dp);
         return dp[ind] = max(notTake, take);
     }
     int rob(vector<int>& nums) {
