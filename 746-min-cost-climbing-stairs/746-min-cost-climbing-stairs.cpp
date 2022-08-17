@@ -1,6 +1,6 @@
 class Solution {
 public:
-    //recursive
+    // memoized
     int f(int i, vector<int> & cost, vector<int> & dp){
         if(i == cost.size()-1)return cost[i];
         if(i >  cost.size()-1)return 0;
