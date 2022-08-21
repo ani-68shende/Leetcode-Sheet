@@ -1,9 +1,9 @@
 class Solution {
 public:
     // takes too much time ...more implementation than logic
-    int replacethen(int pos, int lenOFStamp, string & target){
+    int replacethen(int pos, string & stamp, string & target){
         int countya = 0;
-        for(int i = 0 ; i < lenOFStamp; i++){
+        for(int i = 0 ; i < stamp.size(); i++){
             if(target[i+pos]!='?'){
                 target[i+pos] = '?';
                 countya++;
@@ -30,7 +30,7 @@ public:
             bool is_it_changing = false;
             for(int i = 0 ; i <= target.size()-stamp.size() ; i++){
                 if(!visited[i] && canbe(i, stamp, target)){
-                    count += replacethen(i, stamp.size(), target);
+                    count += replacethen(i, stamp, target);
                     is_it_changing = true;
                     visited[i] = true;
                     res.push_back(i);
