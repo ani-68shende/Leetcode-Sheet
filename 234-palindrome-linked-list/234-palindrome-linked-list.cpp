@@ -41,7 +41,7 @@ public:
             slow = rev(slow->next);
         }
         else
-        slow = rev(slow);
+            slow = rev(slow);
         while(slow){
             if(slow->val == newerr->val){
                 newerr = newerr->next;
