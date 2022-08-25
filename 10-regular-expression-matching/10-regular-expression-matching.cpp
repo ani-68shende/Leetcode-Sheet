@@ -25,10 +25,9 @@ public:
                 }
             }else if(p[m] == '.'){
                 return dp[n][m] = f(n-1, m-1, s, p, dp);
-            }else{
-                return dp[n][m] = false;
             }
         }
+        return dp[n][m] = false;
     }
     bool isMatch(string s, string p) {
         int n = s.size();
