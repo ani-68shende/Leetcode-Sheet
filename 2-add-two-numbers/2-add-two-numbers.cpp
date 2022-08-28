@@ -14,7 +14,7 @@ public:
         ListNode* dummy = new ListNode(-1);//for just an example
         ListNode* temp = dummy;
         int carry = 0;
-        while(l1|| l2 || carry){
+        while(l1|| l2 || carry){ 
             int sum_curr = 0;
             if(l1){
                 sum_curr += l1->val;
@@ -28,8 +28,8 @@ public:
             int value = sum_curr%10;
             carry = sum_curr/10;
             ListNode * node = new ListNode(value);
-            temp ->next = node;
-            temp  = node;
+            temp -> next = node;
+            temp  = temp -> next;;
         }
         return dummy-> next;
     }
