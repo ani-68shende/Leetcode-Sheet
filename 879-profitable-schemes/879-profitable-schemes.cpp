@@ -1,7 +1,7 @@
 class Solution {
 public://int take nottake schema
     int N;
-    int dp[101][101][1001];
+    int dp[101][101][101];
     int pajwa_ki_salary = (int)1000000007;
     int f(int i, int n, int total, vector<int>& group, vector<int>& profit){
         if(i >= N){
