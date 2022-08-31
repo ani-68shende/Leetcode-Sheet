@@ -38,7 +38,6 @@ public:
         while(slow && slow->next){
             slow = slow->next;
         }
-        if(slow)
         slow->next = head;
         return newhead;
     }
