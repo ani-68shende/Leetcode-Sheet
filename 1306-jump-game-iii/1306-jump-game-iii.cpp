@@ -1,6 +1,7 @@
 class Solution {
 public:
     vector<int>visited;
+    // here we use visited so that we don't visit the same index twice
     bool f(int i, vector<int> & arr){
         if(i < 0 || i >= arr.size())return false;
         if(visited[i])return false;
