@@ -10,6 +10,7 @@
  */
 class Solution {
 public:
+    //see prev magz for better understanding
     int countnode(ListNode* head){
         int count= 0 ;
         while(head){
@@ -21,51 +22,39 @@ public:
     vector<ListNode*> splitListToParts(ListNode* head, int k) {
         int n = countnode(head);
         ListNode *temp = head;
-        if(n <= k){
-            vector<ListNode*>v(k, NULL);
-            int i =0 ;
-            while(head){
-                ListNode* newNode = new ListNode(head->val);
-                v[i] = newNode;
-                head = head->next;
-                i++;
-            }
-            return v;
-        }
-        else{
-            vector<ListNode*>v;
-            int parts = n/k;
-            int rem = n%k;
-            int flag = 0;
-            while(temp){
-                int d = parts;
-                if(flag < rem){
-                    flag++;
-                    d += 1;
-                    ListNode* newNode = new ListNode(-1000);
-                    //aree dummy to bhul i gaya;
-                    ListNode* dummy = newNode;
-                    while(temp && d){
-                        d--;
-                        newNode ->next = new ListNode(temp->val);
-                        temp = temp->next;
-                        newNode = newNode->next;
-                    }
-                    v.push_back(dummy->next);
-                }else{
-                    ListNode* newNode = new ListNode(-1000);
-                    ListNode* dummy = newNode;
-                    while(temp && d){
-                        d--;
-                        newNode ->next = new ListNode(temp->val);
-                        temp = temp->next;
-                        newNode = newNode->next;
-                    }
-                    v.push_back(dummy->next);
+        vector<ListNode*>v(k, NULL);
+        int parts = n/k;
+        int rem = n%k;
+        int flag = 0;
+        int i = 0;
+        while(temp){
+            int d = parts;
+            if(flag < rem){
+                flag++;
+                d += 1;
+                ListNode* newNode = new ListNode(-1000);
+                //aree dummy to bhul i gaya;
+                ListNode* dummy = newNode;
+                while(temp && d){
+                    d--;
+                    newNode ->next = new ListNode(temp->val);
+                    temp = temp->next;
+                    newNode = newNode->next;
                 }
+                v[i] = dummy->next;
+            }else{
+                ListNode* newNode = new ListNode(-1000);
+                ListNode* dummy = newNode;
+                while(temp && d){
+                    d--;
+                    newNode ->next = new ListNode(temp->val);
+                    temp = temp->next;
+                    newNode = newNode->next;
+                }
+                v[i] = dummy->next;
             }
-            return v;
+            i++;
         }
-        return {};
+        return v;
     }
 };
