@@ -12,20 +12,18 @@
 class Solution {
 public:
     int ans= 0;
-    int total_nodes = 0;
-    void helper(TreeNode* root, int mini){
+    void helper(TreeNode* root, int maxu){
         if(!root)return;
-        mini = max(mini, root->val);
-        if(root->val == mini){
+        maxu = max(maxu, root->val);
+        if(root->val == maxu){
             ans++;
         }
-        total_nodes++;
-        helper(root->left, mini);
-        helper(root->right, mini);
+        helper(root->left, maxu);
+        helper(root->right, maxu);
     }
     int goodNodes(TreeNode* root) {
-        int mini = root->val;
-        helper(root, mini);
+        int maxu = root->val;
+        helper(root, maxu);
         return ans;
     }
 };
