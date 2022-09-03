@@ -10,7 +10,7 @@ public:
             if(ini == '#' && j >= '1'){
                 f(j, i+1, n, s+j, k);
             }
-            else if(s.size() && abs(j-s.back()) == k){
+            else if(abs(j-s.back()) == k){
                 f(j, i+1, n, s+j, k);
             }
         }
