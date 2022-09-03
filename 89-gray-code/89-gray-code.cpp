@@ -1,19 +1,12 @@
 class Solution {
 public:
-    // dekh kya raha hai... add to list
-    vector<int>ans;
-    void f(int n, bitset<32>&bits){
-        if(n == 0){
-            ans.push_back(bits.to_ulong());
-            return ;
-        }
-        f(n-1, bits);
-        bits.flip(n-1);
-        f(n-1, bits);
-    }
+    // discuss se uthaya
+    // logic op
     vector<int> grayCode(int n) {
-        bitset<32>bits;
-        f(n, bits);
+        n = pow(2, n);
+        vector<int> ans;
+        for (int i=0; i<n; i++) 
+            ans.push_back(i^(i>>1));
         return ans;
     }
 };
