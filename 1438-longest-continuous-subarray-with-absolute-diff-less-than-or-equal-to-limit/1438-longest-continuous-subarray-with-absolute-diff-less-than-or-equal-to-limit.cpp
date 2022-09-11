@@ -1,5 +1,4 @@
 #define ll long long int
-// sorry its overkill
 class Solution {
 public:
     int minVal(int x, int y) { return (x < y) ? x : y; }
