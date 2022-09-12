@@ -17,10 +17,7 @@ public:
         int end = mp[key].size()-1;
         while(start <= end){
             int mid = start + (end-start)/2;
-            if(mp[key][mid].first == timestamp){
-                return mp[key][mid].second;
-            }
-            else if(mp[key][mid].first < timestamp){
+            if(mp[key][mid].first <= timestamp){
                 d = mid;
                 start = mid+1;
             }else{
