@@ -15,6 +15,8 @@ public:
             }
             reverse(arr.begin(), arr.begin()+d+1);
             vec.push_back(d+1);
+            for(auto x: arr)cout << x << " ";
+            cout << endl;
             reverse(arr.begin(), arr.begin()+n-i);
             vec.push_back(n-i);
         }
