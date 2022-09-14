@@ -34,7 +34,6 @@ public:
         vpaths[root->val]--;
     }
     int pseudoPalindromicPaths (TreeNode* root) {
-        //unordered_map<int, int>vpaths;
         int ans =0;
         helper(root, ans);
         return ans;
