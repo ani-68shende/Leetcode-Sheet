@@ -1,5 +1,6 @@
 class Solution {
 public:
+    // dont know does map doesnt work.. thats why needed to copy votrubac 
     int longestAwesome(string s) {
         vector<int> dp(1024, s.size());
         int res = 0, mask = 0;
