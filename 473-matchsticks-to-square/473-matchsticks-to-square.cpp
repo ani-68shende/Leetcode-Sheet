@@ -3,7 +3,7 @@ public:
     bool makesquare(vector<int>& matchsticks) {
         int sum = 0;
         sum = accumulate(matchsticks.begin(), matchsticks.end(), sum);
-        if (matchsticks.size() < 4 || sum % 4) return false;
+        if (sum % 4) return false;
         
         vector<int>visited(matchsticks.size(), false);
         return backtrack(matchsticks, visited, sum / 4, 0, 0, 4);
