@@ -11,8 +11,8 @@ cin.tie(NULL);
                 mp[a&b]++;
             }
         }
-        for(auto a: nums){
-            for(auto x : mp){
+        for(auto x : mp){
+            for(auto a: nums){
                 if((a&x.first)==0)
                     count+=x.second;
             }
