@@ -1,23 +1,9 @@
-class Solution {
-public:
+class DSU
+{
+private:
     vector<int> rank_depth, parent;
-    
-    string smallestStringWithSwaps(string s, vector<vector<int>>& pairs) {
-        makeSet();
-        int n = s.size();
-        map<int, priority_queue<char, vector<char>, greater<char>>>mp;
-        for(auto x : pairs)(union_nodes(x[0], x[1]));
-        for(int i = 0 ; i < n ; i++){
-            int parid = findPar(i);
-            mp[parid].push(s[i]);
-        }
-        for(int i = 0 ; i < n ; i++){
-            int parentid = findPar(i);
-            s[i] = mp[parentid].top();
-            mp[parentid].pop();
-        }
-        return s;
-    }
+
+public:
     void makeSet()
     {
         parent.resize(100005);
@@ -35,13 +21,12 @@ public:
             return node;
         return parent[node] = findPar(parent[node]); // path compression
     }
-    //just change to bool
-    bool union_nodes(int u, int v)
+
+    void union_nodes(int u, int v)
     {
         // go directly for parents we are not concerned about the nodes
         u = findPar(u);
         v = findPar(v);
-        if(u == v)return true;
         if (rank_depth[u] < rank_depth[v])
         {
             parent[u] = v;
@@ -55,6 +40,25 @@ public:
             parent[v] = u;
             rank_depth[u]++;
         }
-        return false;
+    }
+};
+class Solution {
+public:
+    string smallestStringWithSwaps(string s, vector<vector<int>>& pairs) {
+        DSU obj;
+        obj.makeSet();
+        int n = s.size();
+        map<int, priority_queue<char, vector<char>, greater<char>>>mp;
+        for(auto x : pairs)(obj.union_nodes(x[0], x[1]));
+        for(int i = 0 ; i < n ; i++){
+            int parid = obj.findPar(i);
+            mp[parid].push(s[i]);
+        }
+        for(int i = 0 ; i < n ; i++){
+            int parentid = obj.findPar(i);
+            s[i] = mp[parentid].top();
+            mp[parentid].pop();
+        }
+        return s;
     }
 };
