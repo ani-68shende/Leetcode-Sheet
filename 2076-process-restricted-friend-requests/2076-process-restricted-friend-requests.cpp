@@ -58,7 +58,7 @@ public:
             vector<int>temp_parent=obj.parent, temp_rank =obj.rank_depth;
             obj.union_nodes(u, v);
             bool ok = true;
-            for(auto x : restrictions){
+            for(auto &x : restrictions){
                 if(obj.connected(x[0],x[1])){
                     ok=false;
                     break;
