@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //pajwa doing bottom opopop
     long long mod = 1e9+7;
     long long memo_boiz(int M, int N, int X, vector<vector<long long>>& dp){
         if(N == 0){
