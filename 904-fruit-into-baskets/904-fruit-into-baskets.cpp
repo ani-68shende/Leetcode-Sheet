@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //array substring with atmost 2 distinct items
     int totalFruit(vector<int>& fruits) {
         int i = 0;
         int j = 0;
