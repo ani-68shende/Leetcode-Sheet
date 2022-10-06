@@ -1,25 +1,31 @@
 class Solution {
 public:
-    int solve(string &s,char b,int &k){
-       int left=0,res=0,size=s.size(),cnt=0;
-      for(int i=0;i<size;i++){
-            if(s[i]!=b)
-                cnt++;
-            while(cnt>k){
-                if(s[left]!=b)
-                    cnt--;
-                left++;
+    // max consective ones ka variation
+    int solve(string &s,char ch,int &k){
+        int i = 0;
+        int j = 0;
+        int n = s.size();
+        int count = 0;
+        int maxu = 0;
+        while(j < n){
+            if(s[j]!=ch)count+=1;
+            if(count > k){
+                while(count > k){
+                    if(s[i]!=ch)count--;
+                    i++;
+                }
             }
-            res=max(i-left+1,res);
+            maxu = max(maxu, j-i+1);
+            j++;
         }
-        return res;
+        return maxu;
     }
     int characterReplacement(string s, int k) {
         set<char>setsa;
         for(auto x : s)setsa.insert(x);
         int maxu = 0;
-        for(auto x : setsa){
-            maxu = max(maxu, solve(s, x, k));
+        for(auto ch : setsa){
+            maxu = max(maxu, solve(s, ch, k));
         }
         return maxu;
     }
