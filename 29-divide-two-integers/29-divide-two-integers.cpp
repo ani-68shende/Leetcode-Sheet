@@ -1,4 +1,5 @@
 #define ll long long
+// i wantz pajwa backyard tree's papaya
 class Solution {
 public:
     int divide(int n, int m) {
