@@ -14,10 +14,10 @@ public:
     unordered_map<int, int>mp;
     bool findTarget(TreeNode* root, int k) {
         if(!root)return false;
-        bool left = findTarget(root->left, k);
-        bool right = findTarget(root->right, k);
         if(mp.find(k-(root->val)) != mp.end())return true;
         mp[root->val]++;
+        bool left = findTarget(root->left, k);
+        bool right = findTarget(root->right, k);
         return left|right;
     }
 };
