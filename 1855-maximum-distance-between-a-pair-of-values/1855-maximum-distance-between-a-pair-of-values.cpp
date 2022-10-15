@@ -5,8 +5,6 @@ public:
         reverse(nums2.begin(), nums2.end());
         int maxu = 0;
         int n = nums1.size(), n2 = nums2.size();
-        // unordered_map<int, int>mp;
-        // for(int i = 0 ; i < nums2.size() ; i++)mp[nums2[i]] = i;
         for(int i = 0 ; i < n ; i++){
             auto idx = lower_bound(nums2.begin(), nums2.end(), nums1[i]);
             int id = idx-nums2.begin();
