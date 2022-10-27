@@ -9,8 +9,8 @@ public:
     }
     double helper(vector<int>& a,int idx,int k)
     {
-        if(idx >= a.size()) return 0;
-        if(!k) return INT_MIN;
+        if(idx == a.size() && k == 0) return 0;
+        if(idx == a.size() || k == 0) return INT_MIN;
         if(dp[idx][k]!=-1) return dp[idx][k];
         double ans = INT_MIN;
         double sum = 0;
