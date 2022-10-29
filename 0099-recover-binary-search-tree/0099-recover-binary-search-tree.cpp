@@ -22,6 +22,6 @@ public:
         prev = new TreeNode(INT_MIN);
         inorder(root);
         if(first and last)swap(first->val, last->val);
-        else if(first and middle)swap(first->val, middle->val);
+        else swap(first->val, middle->val);
     }
 };
