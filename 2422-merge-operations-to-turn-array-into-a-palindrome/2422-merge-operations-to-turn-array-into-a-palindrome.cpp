@@ -9,11 +9,11 @@ public:
             if(nums[i] == nums[j]){
                 i++,j--;
             }
-            if(i!= j && nums[i] > nums[j] && j-1>=0){
+            if(nums[i] > nums[j] && j-1>=0){
                 nums[j-1] = nums[j-1]+nums[j];
                 count++;
                 j--;
-            }else if(i!= j && nums[i] < nums[j] && i+1<nums.size()){
+            }else if(nums[i] < nums[j] && i+1<nums.size()){
                 nums[i+1] = nums[i+1]+nums[i];
                 count++;
                 i++;
