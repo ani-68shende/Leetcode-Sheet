@@ -11,7 +11,6 @@ public:
         if(dp[i][maxAmount][maxCoupons]!=-1)return dp[i][maxAmount][maxCoupons];
         
         int take = 0, nottake = 0, coupons = 0;
-        // kab le sakta .. jab paisa jyada ho (jo ki mere pass nahi hai T-T)
         
         
         
