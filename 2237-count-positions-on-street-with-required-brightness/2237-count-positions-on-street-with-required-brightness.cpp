@@ -10,6 +10,7 @@ public:
             line[end+1]--;
         }
         long long sum = 0;
+        //just not to get into trouble
         for(int i = 0 ; i < n+1 ; i++){
             sum += line[i];
             pref[i] = sum;
