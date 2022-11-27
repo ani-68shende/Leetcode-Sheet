@@ -19,7 +19,6 @@ public:
         {
             wall.insert({walls[i][0], walls[i][1]});
         }
-        vector<vector<bool>> visited(m, vector<bool>(n, false));
         for (int i = 0; i < gsize; i++)
         {
             int l = guards[i][1] - 1;
