@@ -22,7 +22,7 @@ public:
     }
     
     int getRandom() {
-        return *(std::next(s.begin(),(rand())%(s.size())));
+        return *(next(s.begin(),(rand())%(s.size())));
     }
 };
 
