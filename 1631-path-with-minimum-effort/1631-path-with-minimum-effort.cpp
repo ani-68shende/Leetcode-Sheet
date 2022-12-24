@@ -51,7 +51,7 @@ public:
             ll mid = low + (high-low)/2;
             if(swimInWater(grid, mid)){
                 ans = mid;
-                cout << ans << " ";
+                // cout << ans << " ";
                 high = mid-1;
             }else{
                 low = mid+1;
