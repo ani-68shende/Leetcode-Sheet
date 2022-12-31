@@ -1,7 +1,6 @@
 // prev version using an extra prev variable --easy to understand but cannot handle the dp[][][]
 class Solution {
 public:
-    set<int>endtimes;
     int n;
     vector<vector<int>>dp;
     vector<int>startTimes;
@@ -28,12 +27,11 @@ public:
                                 
     int maxValue(vector<vector<int>>& events, int k) {
         sort(events.begin(), events.end());
+        n = events.size();
         dp.resize(events.size()+1, vector<int>(k+1,-1));
         for(auto x = 0 ; x < events.size() ; x++){
             startTimes.push_back(events[x][0]);
         }
-        n = events.size();
-        for(auto x : events)endtimes.insert(x[1]);
         return f(0, events, k);
     }
 };
