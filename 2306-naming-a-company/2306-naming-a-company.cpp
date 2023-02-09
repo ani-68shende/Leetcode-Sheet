@@ -1,5 +1,6 @@
 class Solution {
 public:
+    //I realized the power of unordered set\U0001f64f\U0001f3fb
     long long distinctNames(vector<string>& ideas) {
         long long sum = 0;
         unordered_set<string>s;
