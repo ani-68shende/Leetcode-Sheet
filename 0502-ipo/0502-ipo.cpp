@@ -1,12 +1,6 @@
 #define ll long long int
 class Solution {
 public:
-    static bool cmp(pair<ll, ll> &a, pair<ll, ll> &b){
-        // if(a.first == b.first){
-        //     return a.second >= b.second;
-        // }
-        return a.first < b.first;
-    }
     ll find(vector<pair<ll, ll>>&v, ll target){
         ll low = 0;
         ll high = v.size() - 1;
@@ -29,18 +23,14 @@ public:
         for(ll i = 0 ; i < n ; i++){
             v.push_back({(ll)capital[i], (ll)profits[i]});
         }
-        sort(v.begin(), v.end(), cmp);
+        sort(v.begin(), v.end());
         ll ini = w;
         ll j = 0;
         ll tot = 0;
         priority_queue<pair<ll, ll>>pq;
         int flag = 0;
         while(k){
-            ll indx = find(v, ini);
-            // if(indx==-1){
-            //     break;
-            // }
-            while(j <= indx){
+            while(j < n && v[j].first <= ini){
                 pq.push({v[j].second, v[j].first});
                 j++;
                 if(j == n){
