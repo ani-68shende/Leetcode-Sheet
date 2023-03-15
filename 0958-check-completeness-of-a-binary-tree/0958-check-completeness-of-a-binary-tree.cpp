@@ -37,10 +37,6 @@ public:
             ht++;
         }
         int u = finala.size(), i(0);
-        while(i<finala[u-1].size() && finala[u-1][i] == -1){
-            i++;
-        }
-        if(i == pow(2,ht-1)){cout << "dang";return true;}
         for(int i = 0 ; i < finala.size()-2 ; i++){
             for(auto x : finala[i]){
                 // cout << x << " ";
