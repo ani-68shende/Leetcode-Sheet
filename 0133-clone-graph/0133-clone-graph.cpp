@@ -8,7 +8,6 @@ public:
                 copy->neighbors.push_back(temp);
                 dfs(child, temp, visited);
             }else{
-                // ye smajhao bhai koi 
                 copy->neighbors.push_back(visited[child->val]);
             }
         }
