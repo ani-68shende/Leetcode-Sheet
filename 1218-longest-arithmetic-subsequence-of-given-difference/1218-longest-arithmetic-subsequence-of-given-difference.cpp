@@ -10,6 +10,7 @@ public:
                 mp[arr[i]]=1;
             }
         }
+        //can shift the maxu up as well to avoid re-looping
         int maxu = 0;
         for(auto x : mp)maxu = max(maxu, x.second);
         return maxu;
