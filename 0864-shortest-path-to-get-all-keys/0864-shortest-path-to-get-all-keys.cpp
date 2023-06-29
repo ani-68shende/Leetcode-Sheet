@@ -1,94 +1,90 @@
 class Solution {
 public:
-    int shortestPathAllKeys(vector<string>& grid)
-    {
-        int m = grid.size() , n = grid[0].size() ;
+    int shortestPathAllKeys(vector<string>& grid) {
+        int countkeys = 0, startx = -1, starty = -1, m = grid.size(), n = grid[0].size(), countsteps = 0;
         
-        int r , c , k = 0 ;
         
-        for(int i=0;i<m;i++)
-        {
-            for(int j=0;j<n;j++)
-            {
-                if(grid[i][j]=='@')
-                {
-                    r = i , c = j ;
+        
+        for(int i = 0 ; i < grid.size() ; i++){
+            for(int j = 0 ; j < grid[0].size() ; j++){
+                if(grid[i][j] == '@'){
+                    startx = i, starty = j;
                 }
-                
-				 // counting numbers of keys
-                if(grid[i][j]>='a' && grid[i][j]<='z')
-                    k++ ;
+                if(grid[i][j] >= 'a' and grid[i][j] <= 'z'){
+                    countkeys++;
+                }
             }
         }
         
-        int mask = (1<<k)-1 ;
         
-        map<int,set<int>> vis ;
-		// key = row*n + col ,  val is set of masks with which we have already visited the cell before.
-        // ith bit in mask is 1 implies we donot have its key yet. 0 implies we have the key
         
-        queue<pair<int,int>> q ; //row*n+col , mask
+        int finalMask = (1<<countkeys)-1;
         
-        q.push({r*n+c,mask}) ;
-        vis[r*n+c].insert(mask) ;
         
-        int dir[5] = {1,0,-1,0,1} ;
         
-        int ans = 0 ;
+        queue<vector<int>>q;
+        vector<vector<vector<int>>> memo(m,vector<vector<int>>(n, vector<int>(finalMask+1,0)));
+        vector<int> dir{-1,0,1,0,-1};
         
-        while(!q.empty())
-        {
-            int sz = q.size() ;
+        
+        q.push({startx, starty, 0});
+        memo[startx][starty][0] = 1;
+        
+        
+        //bfs
+        while(q.size()){
             
-            while(sz--)
-            {
-                auto p = q.front() ; q.pop() ;
+            int siz = q.size();
             
-                int x = p.first/n , y = p.first%n ;
-                mask = p.second ;
-            
-                if(grid[x][y]>='a' && grid[x][y]<='z')
-                {
-                    if(mask&(1<<(grid[x][y]-'a')))
-                        mask-=(1<<(grid[x][y]-'a')) ;
+            for(int i = 0 ; i < siz ; i++){
+                auto fron = q.front();
+                q.pop();
+                int x = fron[0], y = fron[1], mask = fron[2];
+                if(mask == finalMask){
+                    return countsteps;
                 }
-                
-                // we got all the k keys
-                if(mask==0)
-                    return ans ;
-                
-                for(int i=0;i<4;i++)
-                {
-                    int newx = x+dir[i] , newy = y+dir[i+1] ;
+                for(int j = 0 ; j < 4 ; j++){
+                    //additional feature
+                    int newmask = mask;
                     
-					// new cell going out of grid
-                    if(newx<0 || newx>=m || newy<0 || newy>=n) 
-                        continue ;
-                    
-                    if(grid[newx][newy]=='#') // new cell is a wall
-                        continue ;
-                    
-					// new cell is lock and we don't have its key yet
-                    if(grid[newx][newy]>='A' && grid[newx][newy]<='Z' && (mask&(1<<(grid[newx][newy]-'A'))) )
-                    {
-                        continue ;
+                    int newx = x + dir[j], newy = y + dir[j+1];
+                        
+                    //out of bounds
+                    if(newx < 0 || newy < 0 || newx >= grid.size() || newy >= grid[0].size()){
+                        continue;
                     }
                     
-                    int key = (newx*n)+newy ;
-                
-				    // if the cell hasn't been visited with same set of keys
-                    if(vis[key].find(mask)==vis[key].end()) 
-                    {
-                        q.push({key,mask}) ;
-                        vis[key].insert(mask) ;
+                    //if wall
+                    if(grid[newx][newy] == '#'){
+                        continue;
                     }
+                    
+                    //if lock and key not yet found
+                    if(grid[newx][newy] >= 'A' and grid[newx][newy] <= 'Z'){
+                        int lockid = grid[newx][newy] - 'A';
+                        if((newmask & (1 << lockid)) == 0){
+                            continue;
+                        }
+                        // cout << newx << " " << newy << endl;
+                    }
+                    
+                    //if key found
+                    if(grid[newx][newy] >= 'a' and grid[newx][newy] <= 'z'){
+                        int lockid = grid[newx][newy] - 'a';
+                        newmask |= (1 << lockid);
+                    }
+                    
+                    //already visited
+                    if(memo[newx][newy][newmask] == 1){
+                        continue;
+                    }
+                    
+                    q.push({newx, newy, newmask});
+                    memo[newx][newy][newmask] = 1;
                 }
             }
-            
-            ans++ ;
+            countsteps+=1;
         }
-        
-        return -1 ;
-        
+        return -1;
     }
 };
